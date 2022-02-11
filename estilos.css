@@ -1,0 +1,160 @@
+/* NO OLVIDAR AGREGAR EL TIPO DE FUENTE DE LETRA
+font-family: 'Rubik', sans-serif;*/
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900');
+
+* {
+  margin: 0; /* margenes */
+  padding: 0; /* relleno */
+  box-sizing: border-box; /* tipo de caja */
+  font-family: 'Poppins', sans-serif;
+}
+
+:root
+{
+  --clr: #222327;
+}
+
+body
+{
+  display: flex; /* caja en horizontal */
+  justify-content: center; /* alineacion de contenido */
+  align-items: center; /* alineacion de items */
+  min-height: 100vh; /* altura minima */
+  background: var(--clr); /* color de fondo */
+}
+
+.navigation
+{
+  position: relative; /* las cajas no dejan espacios */
+  width: 400px; /* ancho */
+  height: 70px; /* alto */
+  background: #fff;
+  display: flex; 
+  justify-content: center;
+  border-radius: 10px; /* curva del borde */
+
+}
+
+.navigation ul 
+{
+  display: flex;
+  width: 350px;
+}
+
+.navigation ul li
+{
+  position: relative; /* guardan el lugar de la posición */
+  list-style: none; /* saca los iconos de lista */
+  width: 70px;
+  height: 70px;
+  z-index: 1; /* orden de prioridad */
+}
+
+.navigation ul li a
+{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* pone las cajas en columna */
+  width: 100%;
+  font-weight: 500;
+}
+
+.navigation ul li a .icon
+{
+  position: relative;
+  display: block;
+  line-height: 65px;
+  font-size: 1.5em;
+  transition: 0.5s; /* transición de la imagen */
+  color: var(--clr);
+}
+
+.navigation ul li.active a .icon
+{
+  transform: translateY(-32px);
+}
+
+.navigation ul li a .text
+{
+  position: absolute;
+  margin-top: 10px;
+  color: var(--clr);
+  font-weight: 500;
+  font-size: 0.9em;
+  letter-spacing: 0.05em;
+  transition: 0.5s;
+  opacity: 0; /* opacidad del texto */
+  transform: translateY(20px);
+}
+
+.navigation ul li.active a .text
+{
+  opacity: 1;
+  transform: translateY(10px);
+}
+
+.indicator
+{
+  position: absolute;
+  top: -50%;
+  width: 70px;
+  height: 70px;
+  background-color: #29fd53;
+  border-radius: 50%;
+  border: 6px solid var(--clr);
+  transition: 0.5s;
+
+}
+
+.indicator::before
+{
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -22px;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border-top-right-radius: 20px;
+  box-shadow: 0px -10px 0 0 var(--clr);
+}
+
+.indicator::after
+{
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -22px;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border-top-left-radius: 20px;
+  box-shadow: 0px -10px 0 0 var(--clr);
+}
+
+.navigation ul li:nth-child(1).active ~ .indicator
+{
+  transform: translateX(calc(70px*0));
+}
+
+.navigation ul li:nth-child(2).active ~ .indicator
+{
+  transform: translateX(calc(70px*1));
+}
+
+.navigation ul li:nth-child(3).active ~ .indicator
+{
+  transform: translateX(calc(70px*2));
+}
+
+.navigation ul li:nth-child(4).active ~ .indicator
+{
+  transform: translateX(calc(70px*3));
+}
+
+.navigation ul li:nth-child(5).active ~ .indicator
+{
+  transform: translateX(calc(70px*4));
+}
